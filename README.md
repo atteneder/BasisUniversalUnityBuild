@@ -114,9 +114,29 @@ To build and install
 make && make install
 ```
 
-### Other platforms (Linux,Windows,iOS)
+### Windows
 
-Not tested at the moment. Probably needs some minor tweaks to run.
+I used the CMake GUI to configure (with Visual Studio 2017 community). Configure and build it twice. Once for platform `x64` and once for `win32` (which is the default).
+
+Via command line (untested):
+
+```batch
+mkdir build_win32
+cd build_win32
+cmake .. -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBASIS_UNIVERSAL_UNITY_PATH="/your/path/to/BasisUniversalUnity" -DCMAKE_GENERATOR_PLATFORM=x86
+```
+
+And again for 64-bit:
+
+```batch
+mkdir build_win64
+cd build_win64
+cmake .. -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBASIS_UNIVERSAL_UNITY_PATH="/your/path/to/BasisUniversalUnity" -DCMAKE_GENERATOR_PLATFORM=x64
+```
+
+### Linux
+
+Not tested at the moment, but should work.
 
 ## Support
 
