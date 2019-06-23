@@ -44,6 +44,14 @@ target_include_directories(
 	basis_universal/transcoder
 )
 
+if(WIN32)
+	target_compile_definitions(
+		basisu
+		PRIVATE
+		DLL_EXPORT_FLAG
+		)
+endif()
+
 if(APPLE AND NOT IOS)
 	# Unity Editor need the library in .bundle format:
 	set (CMAKE_SHARED_LIBRARY_PREFIX "")
