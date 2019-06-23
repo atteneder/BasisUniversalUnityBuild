@@ -6,7 +6,7 @@ set( BASIS_UNIVERSAL_UNITY_PATH "" CACHE PATH "Path locating the BasisUniversalU
 
 set( DEST_PLUGIN_PATH "${BASIS_UNIVERSAL_UNITY_PATH}/Runtime/Plugins")
 
-message(STATUS "Will build native libs to ${DEST_PLUGIN_PATH}")
+message(STATUS "Will install native libs to ${DEST_PLUGIN_PATH}")
 
 if( NOT EXISTS ${DEST_PLUGIN_PATH}
 	OR NOT EXISTS "${DEST_PLUGIN_PATH}/Android/libs/arm64-v8a"
