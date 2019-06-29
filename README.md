@@ -100,10 +100,9 @@ mkdir build_android_arm64
 cd build_android_arm64
 cmake .. \
 -DANDROID_ABI=arm64-v8a \
--DCMAKE_BUILD_TYPE=RelWithDebInfo \
+-DCMAKE_BUILD_TYPE=Release \
 -DANDROID_NDK=/path/to/your/android/sdk/ndk-bundle \
 -DCMAKE_TOOLCHAIN_FILE="/path/to/your/android/sdk/ndk-bundle/build/cmake/android.toolchain.cmake" \
--DANDROID_STL=c++_static \
 -DBASIS_UNIVERSAL_UNITY_PATH="/your/path/to/BasisUniversalUnity"
 ```
 
@@ -116,6 +115,8 @@ To build and install
 ```bash
 make && make install
 ```
+
+Repeat these steps for other [Android platforms/ABIs](https://developer.android.com/ndk/guides/abis) you want to support (armeabi-v7a and x86 are supported by Unity at the moment) by changing the `-DANDROID_ABI` parameter.
 
 ### Windows
 
