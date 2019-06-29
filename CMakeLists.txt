@@ -6,6 +6,11 @@ set( BASIS_UNIVERSAL_UNITY_PATH "" CACHE PATH "Path locating the BasisUniversalU
 
 set( DEST_PLUGIN_PATH "${BASIS_UNIVERSAL_UNITY_PATH}/Runtime/Plugins")
 
+set(bitness 64)
+if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8 OR FORCE32)
+	set(bitness 32)
+endif()
+
 if(ANDROID)
 set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/Android/libs/${ANDROID_ABI})
 elseif(IOS)
@@ -72,11 +77,6 @@ if(APPLE AND NOT IOS)
     set (CMAKE_SHARED_LIBRARY_SUFFIX ".bundle")
     
 	set_xcode_property (basisu EXECUTABLE_SUFFIX ".bundle")
-endif()
-
-set(bitness 64)
-if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
-	set(bitness 32)
 endif()
 
 install(TARGETS basisu DESTINATION ${UNITY_PLUGIN_DIR})
