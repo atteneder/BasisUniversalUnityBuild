@@ -140,7 +140,26 @@ cmake .. -G "Visual Studio 15 2017" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBASIS_UN
 
 ### Linux
 
-Not tested at the moment, but should work.
+Make sure you have all packages installed for developing (depends on your distribution). Building is quite similar:
+
+```bash
+mkdir build_linux
+cd build_linux
+cmake .. \
+-DCMAKE_BUILD_TYPE=Release \
+-DBASIS_UNIVERSAL_UNITY_PATH="/your/path/to/BasisUniversalUnity"
+```
+
+For cross compiling a 32-bit library (on a 64-bit system) use the provided toolchain:
+
+```bash
+mkdir build_linux_32
+cd build_linux_32
+cmake .. \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_TOOLCHAIN_FILE=../cmake/linux_i686.toolchain.cmake \
+-DBASIS_UNIVERSAL_UNITY_PATH="/your/path/to/BasisUniversalUnity"
+```
 
 ## Support
 
