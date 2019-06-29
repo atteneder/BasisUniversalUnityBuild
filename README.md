@@ -70,7 +70,10 @@ Create a subfolder `build_ios`, enter it and call CMake like this:
 mkdir build_ios
 cd build_ios
 cmake .. -G Xcode \
--DCMAKE_TOOLCHAIN_FILE="../cmake/ios.toolchain.cmake" \
+-DCMAKE_SYSTEM_NAME=iOS \
+-DCMAKE_OSX_ARCHITECTURES=armv7\;armv7s\;arm64 \
+-DCMAKE_OSX_DEPLOYMENT_TARGET=10.0 \
+-DCMAKE_XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH=NO \
 -DBASIS_UNIVERSAL_UNITY_PATH="/your/path/to/BasisUniversalUnity"
 ```
 
