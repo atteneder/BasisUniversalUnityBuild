@@ -6,13 +6,25 @@ set( BASIS_UNIVERSAL_UNITY_PATH "" CACHE PATH "Path locating the BasisUniversalU
 
 set( DEST_PLUGIN_PATH "${BASIS_UNIVERSAL_UNITY_PATH}/Runtime/Plugins")
 
-message(STATUS "Will install native libs to ${DEST_PLUGIN_PATH}")
+if(ANDROID)
+set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/Android/libs/${ANDROID_ABI})
+elseif(IOS)
+set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/iOS)
+else()
+if(bitness EQUAL 32)
+set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/x86)
+else()
+set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/x86_64)
+endif()
+endif()
 
-if( NOT EXISTS ${DEST_PLUGIN_PATH}
-	OR NOT EXISTS "${DEST_PLUGIN_PATH}/Android/libs/arm64-v8a"
-	OR NOT EXISTS "${DEST_PLUGIN_PATH}/iOS"
-	OR NOT EXISTS "${DEST_PLUGIN_PATH}/x86_64"
-	OR NOT EXISTS "${DEST_PLUGIN_PATH}/WebGL"
+set(UNITY_PLUGIN_DIR_WEBGL ${DEST_PLUGIN_PATH}/WebGL)
+
+message(STATUS "Will install native libs to ${UNITY_PLUGIN_DIR}")
+message(STATUS "Will copy source to ${UNITY_PLUGIN_DIR_WEBGL} for WebGL builds")
+
+if( NOT EXISTS ${UNITY_PLUGIN_DIR}
+	OR NOT EXISTS "${UNITY_PLUGIN_DIR_WEBGL}"
 )
 	message(SEND_ERROR "Invalid BasisUniversalUnity path!")
 endif()
@@ -66,20 +78,6 @@ set(bitness 64)
 if(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
 	set(bitness 32)
 endif()
-
-if(ANDROID)
-set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/Android/libs/arm64-v8a)
-elseif(IOS)
-set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/iOS)
-else()
-if(bitness EQUAL 32)
-set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/x86)
-else()
-set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/x86_64)
-endif()
-endif()
-
-set(UNITY_PLUGIN_DIR_WEBGL ${DEST_PLUGIN_PATH}/WebGL)
 
 install(TARGETS basisu DESTINATION ${UNITY_PLUGIN_DIR})
 
