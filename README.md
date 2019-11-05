@@ -1,5 +1,11 @@
 # BasisUniversalUnityBuild
 
+## This project is obsolete
+
+[KtxUnity](https://gitlab.com/atteneder/ktxunity) (formerly BasisUniversalUnity) now uses a build of [KTX-Software](https://github.com/KhronosGroup/KTX-Software) (more specifically this [branch](https://github.com/atteneder/KTX-Software/tree/cmake_unity_basisu)), which includes Basis Universal and the C binding from this project. Additionally it can load KTX 2.0 files now.
+
+## Introduction
+
 Toolchains to develop and build native libraries for [BasisUniversalUnity](https://github.com/atteneder/BasisUniversalUnity), a Unity package that allows you to load [Binomial LLC](http://www.binomial.info)'s [Basis Universal texture files](https://github.com/BinomialLLC/basis_universal) into a Unity game engine project.
 
 Note: If you just want to use the [BasisUniversalUnity package](https://github.com/atteneder/BasisUniversalUnity), don't waste your time here. This project is just for building the necessary native libraries.
