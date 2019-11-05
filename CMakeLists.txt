@@ -23,6 +23,9 @@ set(UNITY_PLUGIN_DIR ${DEST_PLUGIN_PATH}/x86_64)
 endif()
 endif()
 
+set(CMAKE_CXX_FLAGS -std=c++11)
+set(CMAKE_CXX_STANDARD 11)
+
 set(UNITY_PLUGIN_DIR_WEBGL ${DEST_PLUGIN_PATH}/WebGL)
 
 message(STATUS "Will install native libs to ${UNITY_PLUGIN_DIR}")
