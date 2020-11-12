@@ -2,7 +2,9 @@
 
 ## This project is obsolete
 
-[KtxUnity](https://gitlab.com/atteneder/ktxunity) (formerly BasisUniversalUnity) now uses a build of [KTX-Software](https://github.com/KhronosGroup/KTX-Software) (more specifically this [branch](https://github.com/atteneder/KTX-Software/tree/cmake_unity_basisu)), which includes Basis Universal and the C binding from this project. Additionally it can load KTX 2.0 files now.
+[KTX-Software-Unity](https://github.com/atteneder/KTX-Software-Unity) is the active successor.
+
+It provides native libraries and C bindings of [KTX-Software](https://github.com/KhronosGroup/KTX-Software) for use in Unity (within the [KtxUnity](https://github.com/atteneder/KtxUnity) package).
 
 ## Introduction
 
